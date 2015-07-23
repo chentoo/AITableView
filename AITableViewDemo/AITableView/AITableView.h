@@ -14,6 +14,7 @@
 + (instancetype)tableViewWithFrame:(CGRect)frame;
 
 - (void)bindModelClass:(Class)modelClass withCellClass:(Class)cellClass;
+- (void)bindModelClass:(Class)modelClass withCellNibClass:(Class)cellNibClass;
 - (void)updateTabelViewWithModels:(NSArray *)models;
 
 @end

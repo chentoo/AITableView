@@ -22,8 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.tableview = [AITableView tableView];
-    self.tableview.frame = self.view.bounds;
+    self.tableview = [AITableView tableViewWithFrame:self.view.bounds];
     [self.view addSubview:self.tableview];
     
     [self.tableview bindModelClass:[HEHECellModel class] withCellClass:[HEHETableViewCell class]];
