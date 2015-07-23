@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA56C1D31B60DB7100D84B7B /* HEHECellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */; };
 		DAAC13261B4BC89100F7CFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC13251B4BC89100F7CFFB /* main.m */; };
 		DAAC13291B4BC89100F7CFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC13281B4BC89100F7CFFB /* AppDelegate.m */; };
 		DAAC132C1B4BC89100F7CFFB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC132B1B4BC89100F7CFFB /* ViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA56C1D11B60DB7100D84B7B /* HEHECellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHECellModel.h; sourceTree = "<group>"; };
+		DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHECellModel.m; sourceTree = "<group>"; };
 		DAAC13201B4BC89100F7CFFB /* AITableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AITableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAC13241B4BC89100F7CFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAAC13251B4BC89100F7CFFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 				DAAC13281B4BC89100F7CFFB /* AppDelegate.m */,
 				DAAC13511B4BD1A100F7CFFB /* HEHETableViewCell.h */,
 				DAAC13521B4BD1A100F7CFFB /* HEHETableViewCell.m */,
+				DA56C1D11B60DB7100D84B7B /* HEHECellModel.h */,
+				DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */,
 				DAAC132A1B4BC89100F7CFFB /* ViewController.h */,
 				DAAC132B1B4BC89100F7CFFB /* ViewController.m */,
 				DAAC132D1B4BC89100F7CFFB /* Main.storyboard */,
@@ -242,6 +247,7 @@
 				DAAC132C1B4BC89100F7CFFB /* ViewController.m in Sources */,
 				DAAC13531B4BD1A100F7CFFB /* HEHETableViewCell.m in Sources */,
 				DAAC134D1B4BC8CF00F7CFFB /* AITableView.m in Sources */,
+				DA56C1D31B60DB7100D84B7B /* HEHECellModel.m in Sources */,
 				DAAC13291B4BC89100F7CFFB /* AppDelegate.m in Sources */,
 				DAAC13261B4BC89100F7CFFB /* main.m in Sources */,
 			);
@@ -438,6 +444,7 @@
 				DAAC13451B4BC89100F7CFFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAAC13461B4BC89100F7CFFB /* Build configuration list for PBXNativeTarget "AITableViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +453,7 @@
 				DAAC13481B4BC89100F7CFFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

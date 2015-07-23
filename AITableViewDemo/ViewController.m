@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AITableView.h"
 #import "HEHETableViewCell.h"
+#import "HEHECellModel.h"
 
 @interface ViewController ()
 
@@ -21,8 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.tableview = [[AITableView alloc] init];
-    [self.tableview registerCellWithNib:[HEHETableViewCell class]];
+    self.tableview = [AITableView tableView];
+    [self.tableview bindModelClass:[HEHECellModel class] withCellClass:[HEHETableViewCell class]];
+    
+    
+    HEHECellModel *model = [[HEHECellModel alloc] init];
+    [self.tableview updateTabelViewWithModels:@[model]];
 }
 
 - (void)didReceiveMemoryWarning {

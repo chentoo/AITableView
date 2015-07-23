@@ -25,9 +25,24 @@
     return @"sbsbsbsbsbs";
 }
 
++ (NSString *)reuseIdentifier2
+{
+    return @"sbsbsbsbsbs";
+}
+
 - (void)configureWithModel:(id)model
 {
     
+}
+
++ (CGFloat)heightWithModel:(id)model
+{
+    return 40.0f;
+}
+
++ (CGFloat)hahahah:(id)model
+{
+    return 40.0f;
 }
 
 @end

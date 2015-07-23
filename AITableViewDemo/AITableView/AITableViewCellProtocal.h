@@ -11,11 +11,9 @@
 @protocol AITableViewCellProtocal <NSObject>
 
 @required
-
 - (void)configureWithModel:(id)model;
 + (NSString *)reuseIdentifier;
-
-@optional
++ (NSString *)reuseIdentifier2;
 + (CGFloat)heightWithModel:(id)model;
 
 @end
