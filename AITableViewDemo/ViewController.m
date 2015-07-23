@@ -23,11 +23,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.tableview = [AITableView tableView];
+    self.tableview.frame = self.view.bounds;
+    [self.view addSubview:self.tableview];
+    
     [self.tableview bindModelClass:[HEHECellModel class] withCellClass:[HEHETableViewCell class]];
     
-    
     HEHECellModel *model = [[HEHECellModel alloc] init];
-    [self.tableview updateTabelViewWithModels:@[model]];
+    [self.tableview updateTabelViewWithModels:@[model, model, model, model]];
 }
 
 - (void)didReceiveMemoryWarning {

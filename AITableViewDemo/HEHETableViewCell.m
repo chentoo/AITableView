@@ -10,37 +10,27 @@
 
 @implementation HEHETableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        self.textLabel.text = @"月月DSB";
+    }
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-+ (NSString *)reuseIdentifier
++ (NSString *)AIReuseIdentifier
 {
     return @"sbsbsbsbsbs";
 }
 
-+ (NSString *)reuseIdentifier2
-{
-    return @"sbsbsbsbsbs";
-}
-
-- (void)configureWithModel:(id)model
+- (void)AIConfigureWithModel:(id)model
 {
     
 }
 
-+ (CGFloat)heightWithModel:(id)model
-{
-    return 40.0f;
-}
-
-+ (CGFloat)hahahah:(id)model
++ (CGFloat)AIHeightWithModel:(id)model
 {
     return 40.0f;
 }

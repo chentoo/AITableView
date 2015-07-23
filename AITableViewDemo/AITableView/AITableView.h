@@ -10,16 +10,10 @@
 
 @interface AITableView : UITableView
 
-
-
-
 + (instancetype)tableView;
-
-- (void)updateTabelViewWithModels:(NSArray *)models;
-
-- (void)registerCellWithClass:(Class)cellClass;
-- (void)registerCellWithNib:(Class)nibClass;
++ (instancetype)tableViewWithFrame:(CGRect)frame;
 
 - (void)bindModelClass:(Class)modelClass withCellClass:(Class)cellClass;
+- (void)updateTabelViewWithModels:(NSArray *)models;
 
 @end

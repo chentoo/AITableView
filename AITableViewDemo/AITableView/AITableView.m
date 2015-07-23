@@ -19,35 +19,55 @@
 
 @implementation AITableView
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.dataSource = self;
+        self.delegate = self;
+        self.models = [NSArray array];
+        self.bindDic = [NSMutableDictionary dictionary];
+        self.tableFooterView = [[UIView alloc] init];
+    }
+    return self;
+}
+
 + (instancetype)tableView
 {
     AITableView *tableView = [[AITableView alloc] init];
     
-    tableView.dataSource = tableView;
-    tableView.delegate = tableView;
-    tableView.models = @[];
-    tableView.bindDic = [NSMutableDictionary dictionary];
+    return tableView;
+}
+
++ (instancetype)tableViewWithFrame:(CGRect)frame
+{
+    AITableView *tableView = [AITableView tableView];
+    tableView.frame = frame;
     
     return tableView;
 }
 
-#pragma mark - Reigster Cell
+#pragma mark - Public
 
-- (NSString *)identifierOfCellClass:(Class)cellClass
+- (void)bindModelClass:(Class)modelClass withCellClass:(Class)cellClass
 {
-    NSMethodSignature *methodSignature = [cellClass instanceMethodSignatureForSelector:@selector(reuseIdentifier)];
-    
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
-    [invocation setSelector:@selector(reuseIdentifier)];
-    [invocation setTarget:cellClass];
-    
-    NSString * cellIdentifier = [NSString string];
-    [invocation retainArguments];
-    [invocation invoke];
-    [invocation getReturnValue:&cellIdentifier];
-    
-    return cellIdentifier;
+    [self registerCellWithClass:cellClass];
+    [self.bindDic setObject:NSStringFromClass(cellClass) forKey:NSStringFromClass(modelClass)];
 }
+
+- (void)bindModelClass:(Class)modelClass withCellNibClass:(Class)cellNibClass
+{
+    [self registerCellWithNib:cellNibClass];
+    [self.bindDic setObject:NSStringFromClass(cellNibClass) forKey:NSStringFromClass(modelClass)];
+}
+
+- (void)updateTabelViewWithModels:(NSArray *)models
+{
+    self.models = models;
+    [self reloadData];
+}
+
+#pragma mark - Reigster Cell
 
 - (void)registerCellWithClass:(Class)cellClass
 {
@@ -82,19 +102,12 @@
     [self registerNib:nib forCellReuseIdentifier:cellIdentifier];
 }
 
+#pragma mark - Private
 
-
-- (void)bindModelClass:(Class)modelClass withCellClass:(Class)cellClass
+- (NSString *)identifierOfCellClass:(Class)cellClass
 {
-    [self registerCellWithClass:cellClass];
-//    [self.bindDic setObject:NSStringFromClass(modelClass) forKey:NSStringFromClass(cellClass)];
-    [self.bindDic setObject:NSStringFromClass(cellClass) forKey:NSStringFromClass(modelClass)];
-}
-
-- (void)bindModelClass:(Class)modelClass withCellNibClass:(Class)cellNibClass
-{
-    [self registerCellWithNib:cellNibClass];
-    [self.bindDic setObject:NSStringFromClass(cellNibClass) forKey:NSStringFromClass(modelClass)];
+    Class <AITableViewCellProtocal> cellClassProtocal = cellClass;
+    return [cellClassProtocal AIReuseIdentifier];
 }
 
 - (Class)cellClassWithBindModelClass:(Class)modelClass
@@ -105,13 +118,8 @@
     return cellClass;
 }
 
-- (void)updateTabelViewWithModels:(NSArray *)models
-{
-    self.models = models;
-    [self reloadData];
-}
-
 #pragma mark - UITableView Datesource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.models.count;
@@ -123,7 +131,7 @@
     Class cellClass = [self cellClassWithBindModelClass:[cellModel class]];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self identifierOfCellClass:cellClass] forIndexPath:indexPath];
-    [cell performSelector:@selector(configureWithModel:) withObject:cellModel];
+    [cell performSelector:@selector(AIConfigureWithModel:) withObject:cellModel];
     
     return cell;
 }
@@ -134,21 +142,9 @@
 {
     id cellModel = self.models[indexPath.row];
     Class cellClass = [self cellClassWithBindModelClass:[cellModel class]];
-    
-    SEL aaa = NSSelectorFromString(@"reuseIdentifier2");
-    
-    NSMethodSignature *methodSignature = [cellClass instanceMethodSignatureForSelector:aaa];
-    
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
-    [invocation setSelector:aaa];
-    [invocation setTarget:cellClass];
-    
-    NSString * cellIdentifier = [NSString string];
-    [invocation retainArguments];
-    [invocation invoke];
-    [invocation getReturnValue:&cellIdentifier];
+    Class <AITableViewCellProtocal> cellClassProtocal = cellClass;
 
-    return 10;
+    return [cellClassProtocal AIHeightWithModel:cellModel];
 }
 
 @end
