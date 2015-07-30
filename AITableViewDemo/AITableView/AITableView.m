@@ -8,7 +8,12 @@
 
 #import "AITableView.h"
 #import "AITableViewCellProtocal.h"
-#import <objc/runtime.h>
+
+@implementation AITableViewStaticCellModel
+
+@end
+
+static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicModelDefault";
 
 @interface AITableView () <UITableViewDataSource, UITableViewDelegate>
 
@@ -23,10 +28,10 @@
 {
     self = [super init];
     if (self) {
+        _models = [NSArray array];
+        _bindDic = [NSMutableDictionary dictionary];
         self.dataSource = self;
         self.delegate = self;
-        self.models = [NSArray array];
-        self.bindDic = [NSMutableDictionary dictionary];
         self.tableFooterView = [[UIView alloc] init];
     }
     return self;
@@ -52,13 +57,47 @@
 - (void)bindModelClass:(Class)modelClass withCellClass:(Class)cellClass
 {
     [self registerCellWithClass:cellClass];
-    [self.bindDic setObject:NSStringFromClass(cellClass) forKey:NSStringFromClass(modelClass)];
+    if (modelClass)
+    {
+        [self.bindDic setObject:NSStringFromClass(cellClass) forKey:NSStringFromClass(modelClass)];
+    }
+    else
+    {
+        NSString *key = [self keyOfBindDicWithStaticCellClassName:NSStringFromClass(cellClass)];
+        [self.bindDic setObject:NSStringFromClass(cellClass) forKey:key];
+    }
 }
 
 - (void)bindModelClass:(Class)modelClass withCellNibClass:(Class)cellNibClass
 {
     [self registerCellWithNib:cellNibClass];
-    [self.bindDic setObject:NSStringFromClass(cellNibClass) forKey:NSStringFromClass(modelClass)];
+    if (modelClass)
+    {
+        [self.bindDic setObject:NSStringFromClass(cellNibClass) forKey:NSStringFromClass(modelClass)];
+    }
+    else
+    {
+        NSString *key = [self keyOfBindDicWithStaticCellClassName:NSStringFromClass(cellNibClass)];
+        [self.bindDic setObject:NSStringFromClass(cellNibClass) forKey:key];
+        
+    }
+}
+
+- (void)bindStaticCellWithCellClass:(Class)cellClass
+{
+    [self bindModelClass:nil withCellClass:cellClass];
+}
+
+- (void)bindStaticCellWithCellNibClass:(Class)cellNibClass
+{
+    [self bindModelClass:nil withCellNibClass:cellNibClass];
+}
+
+- (AITableViewStaticCellModel *)modelWithStaticCellClass:(Class)cellClass
+{
+    AITableViewStaticCellModel *model = [[AITableViewStaticCellModel alloc] init];
+    model.value = [self keyOfBindDicWithStaticCellClassName:NSStringFromClass(cellClass)];
+    return model;
 }
 
 - (void)updateTabelViewWithModels:(NSArray *)models
@@ -104,15 +143,29 @@
 
 #pragma mark - Private
 
+- (NSString *)keyOfBindDicWithStaticCellClassName:(NSString *)cellClassName
+{
+    return [kAITableViewBindDicModelDefault stringByAppendingString:cellClassName];
+}
+
 - (NSString *)identifierOfCellClass:(Class)cellClass
 {
     Class <AITableViewCellProtocal> cellClassProtocal = cellClass;
     return [cellClassProtocal AIReuseIdentifier];
 }
 
-- (Class)cellClassWithBindModelClass:(Class)modelClass
+- (Class)cellClassWithBindModel:(id)model
 {
-    NSString *cellModelClassName = NSStringFromClass(modelClass);
+    NSString *cellModelClassName;
+    if ([model isKindOfClass:[AITableViewStaticCellModel class]])
+    {
+        cellModelClassName = [(AITableViewStaticCellModel *)model value];
+    }
+    else
+    {
+        cellModelClassName = NSStringFromClass([model class]);
+    }
+
     NSString *cellClassName = self.bindDic[cellModelClassName];
     Class cellClass = NSClassFromString(cellClassName);
     return cellClass;
@@ -128,7 +181,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id cellModel = self.models[indexPath.row];
-    Class cellClass = [self cellClassWithBindModelClass:[cellModel class]];
+    Class cellClass = [self cellClassWithBindModel:cellModel];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self identifierOfCellClass:cellClass] forIndexPath:indexPath];
     [cell performSelector:@selector(AIConfigureWithModel:) withObject:cellModel];
@@ -141,10 +194,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id cellModel = self.models[indexPath.row];
-    Class cellClass = [self cellClassWithBindModelClass:[cellModel class]];
+    Class cellClass = [self cellClassWithBindModel:cellModel];
     Class <AITableViewCellProtocal> cellClassProtocal = cellClass;
 
     return [cellClassProtocal AIHeightWithModel:cellModel];
 }
 
 @end
+

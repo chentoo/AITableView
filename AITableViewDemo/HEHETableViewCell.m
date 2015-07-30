@@ -15,7 +15,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.textLabel.text = @"月月DSB";
     }
     return self;
 }
@@ -27,7 +26,7 @@
 
 - (void)AIConfigureWithModel:(id)model
 {
-    
+    self.textLabel.text = @"月月DSB";
 }
 
 + (CGFloat)AIHeightWithModel:(id)model

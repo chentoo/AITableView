@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA1E4B871B6A0E3000B957AB /* HAHATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1E4B851B6A0E3000B957AB /* HAHATableViewCell.m */; };
+		DA1E4B881B6A0E3000B957AB /* HAHATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1E4B861B6A0E3000B957AB /* HAHATableViewCell.xib */; };
 		DA56C1D31B60DB7100D84B7B /* HEHECellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */; };
 		DAAC13261B4BC89100F7CFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC13251B4BC89100F7CFFB /* main.m */; };
 		DAAC13291B4BC89100F7CFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC13281B4BC89100F7CFFB /* AppDelegate.m */; };
@@ -30,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA1E4B841B6A0E3000B957AB /* HAHATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAHATableViewCell.h; sourceTree = "<group>"; };
+		DA1E4B851B6A0E3000B957AB /* HAHATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAHATableViewCell.m; sourceTree = "<group>"; };
+		DA1E4B861B6A0E3000B957AB /* HAHATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HAHATableViewCell.xib; sourceTree = "<group>"; };
 		DA56C1D11B60DB7100D84B7B /* HEHECellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHECellModel.h; sourceTree = "<group>"; };
 		DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHECellModel.m; sourceTree = "<group>"; };
 		DAAC13201B4BC89100F7CFFB /* AITableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AITableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +101,9 @@
 				DAAC13281B4BC89100F7CFFB /* AppDelegate.m */,
 				DAAC13511B4BD1A100F7CFFB /* HEHETableViewCell.h */,
 				DAAC13521B4BD1A100F7CFFB /* HEHETableViewCell.m */,
+				DA1E4B841B6A0E3000B957AB /* HAHATableViewCell.h */,
+				DA1E4B851B6A0E3000B957AB /* HAHATableViewCell.m */,
+				DA1E4B861B6A0E3000B957AB /* HAHATableViewCell.xib */,
 				DA56C1D11B60DB7100D84B7B /* HEHECellModel.h */,
 				DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */,
 				DAAC132A1B4BC89100F7CFFB /* ViewController.h */,
@@ -227,6 +235,7 @@
 				DAAC132F1B4BC89100F7CFFB /* Main.storyboard in Resources */,
 				DAAC13341B4BC89100F7CFFB /* LaunchScreen.xib in Resources */,
 				DAAC13311B4BC89100F7CFFB /* Images.xcassets in Resources */,
+				DA1E4B881B6A0E3000B957AB /* HAHATableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +256,7 @@
 				DAAC132C1B4BC89100F7CFFB /* ViewController.m in Sources */,
 				DAAC13531B4BD1A100F7CFFB /* HEHETableViewCell.m in Sources */,
 				DAAC134D1B4BC8CF00F7CFFB /* AITableView.m in Sources */,
+				DA1E4B871B6A0E3000B957AB /* HAHATableViewCell.m in Sources */,
 				DA56C1D31B60DB7100D84B7B /* HEHECellModel.m in Sources */,
 				DAAC13291B4BC89100F7CFFB /* AppDelegate.m in Sources */,
 				DAAC13261B4BC89100F7CFFB /* main.m in Sources */,
