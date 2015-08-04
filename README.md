@@ -67,7 +67,7 @@ You have to bind model and cell ,or bind static cell:
     HEHECellModel *model = [[HEHECellModel alloc] init];
     AITableViewStaticCellModel *sModel = [self.tableview modelWithStaticCellClass:[HAHATableViewCell class]];
     
-    [self.tableview updateTabelViewWithModels:@[model, model, model, model, sModel, sModel, model]];
+    [self.tableview updateTabelViewWithModels:@[model, sModel, sModel, model]];
 ```
 
 #### May be your need to see Demo.
