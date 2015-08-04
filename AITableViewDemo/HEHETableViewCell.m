@@ -21,7 +21,7 @@
 
 + (NSString *)AIReuseIdentifier
 {
-    return @"sbsbsbsbsbs";
+    return @"HEHETableViewCellReuseIdentifier";
 }
 
 - (void)AIConfigureWithModel:(id)model

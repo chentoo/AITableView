@@ -16,7 +16,7 @@
 
 + (NSString *)AIReuseIdentifier
 {
-    return @"sbsbsbsbsbsaaa";
+    return @"HAHATableViewCellReuseIdentifier";
 }
 
 - (void)AIConfigureWithModel:(id)model
