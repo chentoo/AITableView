@@ -136,9 +136,10 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSString *path = [mainBundle pathForResource:NSStringFromClass(nibClass) ofType:@"nib"];
     NSAssert(path, @"Your cell class nib is nil!");
-    
-    UINib *nib = [UINib nibWithNibName:NSStringFromClass(nibClass) bundle:nil];
-    [self registerNib:nib forCellReuseIdentifier:cellIdentifier];
+    if (path.length > 0) {
+        UINib *nib = [UINib nibWithNibName:NSStringFromClass(nibClass) bundle:nil];
+        [self registerNib:nib forCellReuseIdentifier:cellIdentifier];
+    }
 }
 
 #pragma mark - Private
