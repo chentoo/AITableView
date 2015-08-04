@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA14096F1B70A6130082A638 /* AITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14096D1B70A6130082A638 /* AITableView.m */; };
 		DA1E4B871B6A0E3000B957AB /* HAHATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1E4B851B6A0E3000B957AB /* HAHATableViewCell.m */; };
 		DA1E4B881B6A0E3000B957AB /* HAHATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1E4B861B6A0E3000B957AB /* HAHATableViewCell.xib */; };
 		DA56C1D31B60DB7100D84B7B /* HEHECellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */; };
@@ -17,7 +18,6 @@
 		DAAC13311B4BC89100F7CFFB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAAC13301B4BC89100F7CFFB /* Images.xcassets */; };
 		DAAC13341B4BC89100F7CFFB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAAC13321B4BC89100F7CFFB /* LaunchScreen.xib */; };
 		DAAC13401B4BC89100F7CFFB /* AITableViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC133F1B4BC89100F7CFFB /* AITableViewDemoTests.m */; };
-		DAAC134D1B4BC8CF00F7CFFB /* AITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC134C1B4BC8CF00F7CFFB /* AITableView.m */; };
 		DAAC13531B4BD1A100F7CFFB /* HEHETableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC13521B4BD1A100F7CFFB /* HEHETableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA14096C1B70A6130082A638 /* AITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableView.h; sourceTree = "<group>"; };
+		DA14096D1B70A6130082A638 /* AITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableView.m; sourceTree = "<group>"; };
+		DA14096E1B70A6130082A638 /* AITableViewCellProtocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableViewCellProtocal.h; sourceTree = "<group>"; };
 		DA1E4B841B6A0E3000B957AB /* HAHATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAHATableViewCell.h; sourceTree = "<group>"; };
 		DA1E4B851B6A0E3000B957AB /* HAHATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAHATableViewCell.m; sourceTree = "<group>"; };
 		DA1E4B861B6A0E3000B957AB /* HAHATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HAHATableViewCell.xib; sourceTree = "<group>"; };
@@ -50,9 +53,6 @@
 		DAAC13391B4BC89100F7CFFB /* AITableViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AITableViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAC133E1B4BC89100F7CFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAAC133F1B4BC89100F7CFFB /* AITableViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AITableViewDemoTests.m; sourceTree = "<group>"; };
-		DAAC134B1B4BC8CF00F7CFFB /* AITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableView.h; sourceTree = "<group>"; };
-		DAAC134C1B4BC8CF00F7CFFB /* AITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableView.m; sourceTree = "<group>"; };
-		DAAC134E1B4BCB1800F7CFFB /* AITableViewCellProtocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableViewCellProtocal.h; sourceTree = "<group>"; };
 		DAAC13511B4BD1A100F7CFFB /* HEHETableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHETableViewCell.h; sourceTree = "<group>"; };
 		DAAC13521B4BD1A100F7CFFB /* HEHETableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHETableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +75,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA14096B1B70A6130082A638 /* AITableView */ = {
+			isa = PBXGroup;
+			children = (
+				DA14096C1B70A6130082A638 /* AITableView.h */,
+				DA14096D1B70A6130082A638 /* AITableView.m */,
+				DA14096E1B70A6130082A638 /* AITableViewCellProtocal.h */,
+			);
+			name = AITableView;
+			path = ../../AITableView;
+			sourceTree = "<group>";
+		};
 		DAAC13171B4BC89100F7CFFB = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +107,7 @@
 		DAAC13221B4BC89100F7CFFB /* AITableViewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				DAAC134A1B4BC8A800F7CFFB /* AITableView */,
+				DA14096B1B70A6130082A638 /* AITableView */,
 				DAAC13271B4BC89100F7CFFB /* AppDelegate.h */,
 				DAAC13281B4BC89100F7CFFB /* AppDelegate.m */,
 				DAAC13511B4BD1A100F7CFFB /* HEHETableViewCell.h */,
@@ -140,16 +151,6 @@
 				DAAC133E1B4BC89100F7CFFB /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DAAC134A1B4BC8A800F7CFFB /* AITableView */ = {
-			isa = PBXGroup;
-			children = (
-				DAAC134E1B4BCB1800F7CFFB /* AITableViewCellProtocal.h */,
-				DAAC134B1B4BC8CF00F7CFFB /* AITableView.h */,
-				DAAC134C1B4BC8CF00F7CFFB /* AITableView.m */,
-			);
-			path = AITableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,8 +256,8 @@
 			files = (
 				DAAC132C1B4BC89100F7CFFB /* ViewController.m in Sources */,
 				DAAC13531B4BD1A100F7CFFB /* HEHETableViewCell.m in Sources */,
-				DAAC134D1B4BC8CF00F7CFFB /* AITableView.m in Sources */,
 				DA1E4B871B6A0E3000B957AB /* HAHATableViewCell.m in Sources */,
+				DA14096F1B70A6130082A638 /* AITableView.m in Sources */,
 				DA56C1D31B60DB7100D84B7B /* HEHECellModel.m in Sources */,
 				DAAC13291B4BC89100F7CFFB /* AppDelegate.m in Sources */,
 				DAAC13261B4BC89100F7CFFB /* main.m in Sources */,

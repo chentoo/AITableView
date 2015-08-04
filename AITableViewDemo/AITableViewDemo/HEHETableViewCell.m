@@ -26,7 +26,7 @@
 
 - (void)AIConfigureWithModel:(id)model
 {
-    self.textLabel.text = @"月月DSB";
+    self.textLabel.text = @"HEHETableViewCell";
 }
 
 + (CGFloat)AIHeightWithModel:(id)model
