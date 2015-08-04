@@ -73,3 +73,5 @@ You have to bind model and cell ,or bind static cell:
 #### May be your need to see Demo.
 
 
+#License
+MIT
