@@ -27,15 +27,12 @@
     [self.view addSubview:self.tableview];
     
     [self.tableview bindModelClass:[HEHECellModel class] withCellClass:[HEHETableViewCell class]];
-    [self.tableview bindModelClass:nil withCellNibClass:[HAHATableViewCell class]];
-    
     [self.tableview bindStaticCellWithCellNibClass:[HAHATableViewCell class]];
-    
     
     HEHECellModel *model = [[HEHECellModel alloc] init];
     AITableViewStaticCellModel *sModel = [self.tableview modelWithStaticCellClass:[HAHATableViewCell class]];
     
-    [self.tableview updateTabelViewWithModels:@[model, model, model, model, sModel, sModel, model]];
+    [self.tableview updateTabelViewWithModels:@[model, sModel, sModel, model]];
 }
 
 - (void)didReceiveMemoryWarning {
