@@ -32,7 +32,7 @@
 - (AITableViewStaticCellModel *)modelWithStaticCellClass:(Class)cellClass;
 
 //更新tableview，根据传入的models
-- (void)updateTabelViewWithModels:(NSArray *)models;
+- (void)updateTableViewWithModels:(NSArray *)models;
 
 
 @end

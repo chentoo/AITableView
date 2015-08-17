@@ -100,7 +100,7 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     return model;
 }
 
-- (void)updateTabelViewWithModels:(NSArray *)models
+- (void)updateTableViewWithModels:(NSArray *)models
 {
     self.models = models;
     [self reloadData];
