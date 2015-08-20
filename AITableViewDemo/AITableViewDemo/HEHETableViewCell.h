@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AITableViewCellProtocal.h"
+#import "AITableViewProtocal.h"
 
 @interface HEHETableViewCell : UITableViewCell <AITableViewCellProtocal>
 

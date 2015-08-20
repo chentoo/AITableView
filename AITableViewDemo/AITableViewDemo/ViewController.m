@@ -11,6 +11,7 @@
 #import "HEHETableViewCell.h"
 #import "HEHECellModel.h"
 #import "HAHATableViewCell.h"
+#import "HEHETableViewHeaderView.h"
 
 @interface ViewController ()
 
@@ -26,13 +27,19 @@
     self.tableview = [AITableView tableViewWithFrame:self.view.bounds];
     [self.view addSubview:self.tableview];
     
-    [self.tableview bindModelClass:[HEHECellModel class] withCellClass:[HEHETableViewCell class]];
+    [self.tableview bindStaticSectionWithSectionClass:[HEHETableViewHeaderView class]];
+    [self.tableview bindCellClass:[HEHETableViewCell class] withModelClass:[HEHECellModel class]];
     [self.tableview bindStaticCellWithCellNibClass:[HAHATableViewCell class]];
+    
     
     HEHECellModel *model = [[HEHECellModel alloc] init];
     AITableViewStaticCellModel *sModel = [self.tableview modelWithStaticCellClass:[HAHATableViewCell class]];
     
-    [self.tableview updateTableViewWithModels:@[model, sModel, sModel, model]];
+    AITableViewStaticSectionModel *sectionModel = [self.tableview modelWithStaticSectionClass:[HEHETableViewHeaderView class]];
+    AITableViewSection *aiSection = [AITableViewSection sectionWithHeaderModel:sectionModel footerModel:nil cellModels:@[model, sModel, sModel, model]];
+    
+//    [self.tableview updateTableViewWithModels:@[model, sModel, sModel, model]];
+    [self.tableview updateTableViewWithSections:@[aiSection, aiSection, aiSection]];
 }
 
 - (void)didReceiveMemoryWarning {

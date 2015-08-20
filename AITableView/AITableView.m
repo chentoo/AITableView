@@ -7,9 +7,13 @@
 //
 
 #import "AITableView.h"
-#import "AITableViewCellProtocal.h"
+#import "AITableViewProtocal.h"
 
 @implementation AITableViewStaticCellModel
+
+@end
+
+@implementation AITableViewStaticSectionModel
 
 @end
 
@@ -18,7 +22,9 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
 @interface AITableView () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableDictionary *bindDic;
+@property (strong, nonatomic) NSMutableDictionary *bindSectionDic;
 @property (strong, nonatomic) NSArray *models;
+@property (strong, nonatomic) NSArray *sections;
 
 @end
 
@@ -29,7 +35,9 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     self = [super init];
     if (self) {
         _models = [NSArray array];
+        _sections = [NSArray array];
         _bindDic = [NSMutableDictionary dictionary];
+        _bindSectionDic = [NSMutableDictionary dictionary];
         self.dataSource = self;
         self.delegate = self;
         self.tableFooterView = [[UIView alloc] init];
@@ -52,9 +60,9 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     return tableView;
 }
 
-#pragma mark - Public
+#pragma mark - Cell Public
 
-- (void)bindModelClass:(Class)modelClass withCellClass:(Class)cellClass
+- (void)bindCellClass:(Class)cellClass withModelClass:(Class)modelClass
 {
     [self registerCellWithClass:cellClass];
     if (modelClass)
@@ -68,7 +76,7 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     }
 }
 
-- (void)bindModelClass:(Class)modelClass withCellNibClass:(Class)cellNibClass
+- (void)bindCellNibClass:(Class)cellNibClass withModelClass:(Class)modelClass
 {
     [self registerCellWithNib:cellNibClass];
     if (modelClass)
@@ -85,12 +93,12 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
 
 - (void)bindStaticCellWithCellClass:(Class)cellClass
 {
-    [self bindModelClass:nil withCellClass:cellClass];
+    [self bindCellClass:cellClass withModelClass:Nil];
 }
 
 - (void)bindStaticCellWithCellNibClass:(Class)cellNibClass
 {
-    [self bindModelClass:nil withCellNibClass:cellNibClass];
+    [self bindCellNibClass:cellNibClass withModelClass:Nil];
 }
 
 - (AITableViewStaticCellModel *)modelWithStaticCellClass:(Class)cellClass
@@ -105,6 +113,61 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     self.models = models;
     [self reloadData];
 }
+
+#pragma mark - Section Public
+
+- (void)bindSectionClass:(Class)sectionClass withModelClass:(Class)modelClass
+{
+    [self registerSectionWithClass:sectionClass];
+    if (modelClass)
+    {
+        [self.bindSectionDic setObject:NSStringFromClass(sectionClass) forKey:NSStringFromClass(modelClass)];
+    }
+    else
+    {
+        NSString *key = [self keyOfBindSectionDicWithStaticSectionClassName:NSStringFromClass(sectionClass)];
+        [self.bindSectionDic setObject:NSStringFromClass(sectionClass) forKey:key];
+    }
+}
+
+- (void)bindSectionNibClass:(Class)sectionNibClass withModelClass:(Class)modelClass
+{
+    [self registerSectionWithNibClass:sectionNibClass];
+    if (modelClass)
+    {
+        [self.bindSectionDic setObject:NSStringFromClass(sectionNibClass) forKey:NSStringFromClass(modelClass)];
+    }
+    else
+    {
+        NSString *key = [self keyOfBindSectionDicWithStaticSectionClassName:NSStringFromClass(sectionNibClass)];
+        [self.bindSectionDic setObject:NSStringFromClass(sectionNibClass) forKey:key];
+    }
+}
+
+- (void)bindStaticSectionWithSectionClass:(Class)sectionClass
+{
+    [self bindSectionClass:sectionClass withModelClass:Nil];
+}
+
+- (void)bindStaticSectionWithSectionNibClass:(Class)sectionNibClass
+{
+    [self bindSectionNibClass:sectionNibClass withModelClass:Nil];
+}
+
+- (AITableViewStaticSectionModel *)modelWithStaticSectionClass:(Class)sectionClass
+{
+    AITableViewStaticSectionModel *model = [[AITableViewStaticSectionModel alloc] init];
+    model.value = [self keyOfBindSectionDicWithStaticSectionClassName:NSStringFromClass(sectionClass)];
+    return model;
+}
+
+- (void)updateTableViewWithSections:(NSArray *)sections
+{
+    self.sections = sections;
+    self.models = nil;
+    [self reloadData];
+}
+
 
 #pragma mark - Reigster Cell
 
@@ -142,7 +205,47 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     }
 }
 
-#pragma mark - Private
+#pragma mark - Reigster Section
+
+- (void)registerSectionWithClass:(Class)sectionClass
+{
+    if(![sectionClass conformsToProtocol:@protocol(AITableViewSectionProtocal)])
+    {
+        NSAssert(NO, @"Your sectionClass did not have protocal : AITableViewSectionProtocal");
+        return;
+    }
+    NSString *sectionIdentifier = [self identifierOfSectionClass:sectionClass];
+    if (sectionIdentifier.length == 0) {
+        NSAssert(NO, @"Your section protocal AITableViewSectionProtocal 's method :' + reuseIdentifier ' return nil or empty!");
+    }
+    else {
+        [self registerClass:sectionClass forHeaderFooterViewReuseIdentifier:sectionIdentifier];
+    }
+}
+
+- (void)registerSectionWithNibClass:(Class)sectionNibClass
+{
+    if(![sectionNibClass conformsToProtocol:@protocol(AITableViewSectionProtocal)])
+    {
+        NSAssert(NO, @"Your sectionClass did not have protocal : AITableViewSectionProtocal");
+        return;
+    }
+    NSString *sectionIdentifier = [self identifierOfSectionClass:sectionNibClass];
+    if (sectionIdentifier.length == 0) {
+        NSAssert(NO, @"Your section protocal AITableViewSectionProtocal 's method :' + reuseIdentifier ' return nil or empty!");
+    }
+    else {
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        NSString *path = [mainBundle pathForResource:NSStringFromClass(sectionNibClass) ofType:@"nib"];
+        NSAssert(path, @"Your cell class nib is nil!");
+        if (path.length > 0) {
+            UINib *nib = [UINib nibWithNibName:NSStringFromClass(sectionNibClass) bundle:nil];
+            [self registerNib:nib forHeaderFooterViewReuseIdentifier:sectionIdentifier];
+        }
+    }
+}
+
+#pragma mark - Cell Private
 
 - (NSString *)keyOfBindDicWithStaticCellClassName:(NSString *)cellClassName
 {
@@ -172,16 +275,64 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     return cellClass;
 }
 
+#pragma mark - Section Private
+
+- (NSString *)keyOfBindSectionDicWithStaticSectionClassName:(NSString *)sectionClassName
+{
+    return [kAITableViewBindDicModelDefault stringByAppendingString:sectionClassName];
+}
+
+- (NSString *)identifierOfSectionClass:(Class)sectionClass
+{
+    Class <AITableViewSectionProtocal> sectionClassProtocal = sectionClass;
+    return [sectionClassProtocal AIReuseIdentifier];
+}
+
+- (Class)sectionClassWithBindModel:(id)model
+{
+    NSString *sectionModelClassName;
+    if ([model isKindOfClass:[AITableViewStaticSectionModel class]])
+    {
+        sectionModelClassName = [(AITableViewStaticSectionModel *)model value];
+    }
+    else
+    {
+        sectionModelClassName = NSStringFromClass([model class]);
+    }
+    
+    NSString *sectionClassName = self.bindSectionDic[sectionModelClassName];
+    Class sectionClass = NSClassFromString(sectionClassName);
+    return sectionClass;
+}
+
 #pragma mark - UITableView Datesource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return MAX(self.sections.count, 1);
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.sections.count > 0) {
+        AITableViewSection *sectionObject = self.sections[section];
+
+        return sectionObject.cellModels.count;
+    }
     return self.models.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id cellModel = self.models[indexPath.row];
+    id cellModel;
+    if (self.sections.count > 0) {
+        AITableViewSection *sectionObject = self.sections[indexPath.section];
+        cellModel = sectionObject.cellModels[indexPath.row];
+    }
+    else {
+        cellModel = self.models[indexPath.row];
+    }
+
     Class cellClass = [self cellClassWithBindModel:cellModel];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self identifierOfCellClass:cellClass] forIndexPath:indexPath];
@@ -190,15 +341,48 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (self.sections.count > 0) {
+        AITableViewSection *sectionObject = self.sections[section];
+        Class sectionClass = [self sectionClassWithBindModel:sectionObject.headerModel];
+        
+        UITableViewHeaderFooterView *headerView = [self dequeueReusableHeaderFooterViewWithIdentifier:[self identifierOfSectionClass:sectionClass]];
+        [headerView performSelector:@selector(AIConfigureWithModel:) withObject:sectionObject.headerModel];
+        return headerView;
+    }
+    return nil;
+}
+
 #pragma mark - UITableView Delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    id cellModel = self.models[indexPath.row];
+    id cellModel;
+    if (self.sections.count > 0) {
+        AITableViewSection *sectionObject = self.sections[indexPath.section];
+        cellModel = sectionObject.cellModels[indexPath.row];
+    }
+    else {
+        cellModel = self.models[indexPath.row];
+    }
+
     Class cellClass = [self cellClassWithBindModel:cellModel];
     Class <AITableViewCellProtocal> cellClassProtocal = cellClass;
 
     return [cellClassProtocal AIHeightWithModel:cellModel];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (self.sections.count > 0) {
+        AITableViewSection *sectionObject = self.sections[section];
+        Class sectionClass = [self sectionClassWithBindModel:sectionObject.headerModel];
+        Class <AITableViewSectionProtocal> sectionClassProtocal = sectionClass;
+
+        return [sectionClassProtocal AIHeightWithModel:sectionObject.headerModel];
+    }
+    return 0;
 }
 
 @end

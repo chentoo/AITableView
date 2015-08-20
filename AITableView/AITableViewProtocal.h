@@ -16,3 +16,13 @@
 + (CGFloat)AIHeightWithModel:(id)model;
 
 @end
+
+@protocol AITableViewSectionProtocal <NSObject>
+
+@required
+- (void)AIConfigureWithModel:(id)model;
++ (NSString *)AIReuseIdentifier;
++ (CGFloat)AIHeightWithModel:(id)model;
+
+
+@end
