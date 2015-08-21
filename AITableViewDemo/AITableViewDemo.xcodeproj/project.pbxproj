@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DA022A421B85A9CE00AC299C /* AITableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = DA022A411B85A9CE00AC299C /* AITableViewSection.m */; };
 		DA022A451B85B60600AC299C /* HEHETableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA022A441B85B60600AC299C /* HEHETableViewHeaderView.m */; };
+		DA0A9CD01B86FDEA0031EC1A /* HEHETableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0A9CCF1B86FDEA0031EC1A /* HEHETableViewFooterView.m */; };
+		DA0A9CD21B8706540031EC1A /* HEHETableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0A9CD11B8706540031EC1A /* HEHETableViewFooterView.xib */; };
 		DA14096F1B70A6130082A638 /* AITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14096D1B70A6130082A638 /* AITableView.m */; };
 		DA1E4B871B6A0E3000B957AB /* HAHATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1E4B851B6A0E3000B957AB /* HAHATableViewCell.m */; };
 		DA1E4B881B6A0E3000B957AB /* HAHATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1E4B861B6A0E3000B957AB /* HAHATableViewCell.xib */; };
@@ -38,6 +40,9 @@
 		DA022A411B85A9CE00AC299C /* AITableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableViewSection.m; sourceTree = "<group>"; };
 		DA022A431B85B60600AC299C /* HEHETableViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHETableViewHeaderView.h; sourceTree = "<group>"; };
 		DA022A441B85B60600AC299C /* HEHETableViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHETableViewHeaderView.m; sourceTree = "<group>"; };
+		DA0A9CCE1B86FDEA0031EC1A /* HEHETableViewFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHETableViewFooterView.h; sourceTree = "<group>"; };
+		DA0A9CCF1B86FDEA0031EC1A /* HEHETableViewFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHETableViewFooterView.m; sourceTree = "<group>"; };
+		DA0A9CD11B8706540031EC1A /* HEHETableViewFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HEHETableViewFooterView.xib; sourceTree = "<group>"; };
 		DA14096C1B70A6130082A638 /* AITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableView.h; sourceTree = "<group>"; };
 		DA14096D1B70A6130082A638 /* AITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableView.m; sourceTree = "<group>"; };
 		DA14096E1B70A6130082A638 /* AITableViewProtocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableViewProtocal.h; sourceTree = "<group>"; };
@@ -125,6 +130,9 @@
 				DA1E4B861B6A0E3000B957AB /* HAHATableViewCell.xib */,
 				DA022A431B85B60600AC299C /* HEHETableViewHeaderView.h */,
 				DA022A441B85B60600AC299C /* HEHETableViewHeaderView.m */,
+				DA0A9CCE1B86FDEA0031EC1A /* HEHETableViewFooterView.h */,
+				DA0A9CCF1B86FDEA0031EC1A /* HEHETableViewFooterView.m */,
+				DA0A9CD11B8706540031EC1A /* HEHETableViewFooterView.xib */,
 				DA56C1D11B60DB7100D84B7B /* HEHECellModel.h */,
 				DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */,
 				DAAC132A1B4BC89100F7CFFB /* ViewController.h */,
@@ -247,6 +255,7 @@
 				DAAC13341B4BC89100F7CFFB /* LaunchScreen.xib in Resources */,
 				DAAC13311B4BC89100F7CFFB /* Images.xcassets in Resources */,
 				DA1E4B881B6A0E3000B957AB /* HAHATableViewCell.xib in Resources */,
+				DA0A9CD21B8706540031EC1A /* HEHETableViewFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAAC132C1B4BC89100F7CFFB /* ViewController.m in Sources */,
+				DA0A9CD01B86FDEA0031EC1A /* HEHETableViewFooterView.m in Sources */,
 				DA022A421B85A9CE00AC299C /* AITableViewSection.m in Sources */,
 				DAAC13531B4BD1A100F7CFFB /* HEHETableViewCell.m in Sources */,
 				DA1E4B871B6A0E3000B957AB /* HAHATableViewCell.m in Sources */,

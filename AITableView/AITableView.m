@@ -116,7 +116,7 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
 
 #pragma mark - Section Public
 
-- (void)bindSectionClass:(Class)sectionClass withModelClass:(Class)modelClass
+- (void)bindHeaderFooterClass:(Class)sectionClass withModelClass:(Class)modelClass
 {
     [self registerSectionWithClass:sectionClass];
     if (modelClass)
@@ -130,7 +130,7 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     }
 }
 
-- (void)bindSectionNibClass:(Class)sectionNibClass withModelClass:(Class)modelClass
+- (void)bindHeaderFooterNibClass:(Class)sectionNibClass withModelClass:(Class)modelClass
 {
     [self registerSectionWithNibClass:sectionNibClass];
     if (modelClass)
@@ -144,20 +144,20 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     }
 }
 
-- (void)bindStaticSectionWithSectionClass:(Class)sectionClass
+- (void)bindStaticHeaderFooterWithClass:(Class)headerFooterClass
 {
-    [self bindSectionClass:sectionClass withModelClass:Nil];
+    [self bindHeaderFooterClass:headerFooterClass withModelClass:Nil];
 }
 
-- (void)bindStaticSectionWithSectionNibClass:(Class)sectionNibClass
+- (void)bindStaticHeaderFooterWithNibClass:(Class)headerFooterNibClass
 {
-    [self bindSectionNibClass:sectionNibClass withModelClass:Nil];
+    [self bindHeaderFooterNibClass:headerFooterNibClass withModelClass:Nil];
 }
 
-- (AITableViewStaticHeaderFooterModel *)modelWithStaticSectionClass:(Class)sectionClass
+- (AITableViewStaticHeaderFooterModel *)modelWithStaticHeaderFooterClass:(Class)headerFooterClass
 {
     AITableViewStaticHeaderFooterModel *model = [[AITableViewStaticHeaderFooterModel alloc] init];
-    model.value = [self keyOfBindSectionDicWithStaticSectionClassName:NSStringFromClass(sectionClass)];
+    model.value = [self keyOfBindSectionDicWithStaticSectionClassName:NSStringFromClass(headerFooterClass)];
     return model;
 }
 
@@ -345,11 +345,30 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
 {
     if (self.sections.count > 0) {
         AITableViewSection *sectionObject = self.sections[section];
+        if (!sectionObject.headerModel) {
+            return nil;
+        }
         Class sectionClass = [self sectionClassWithBindModel:sectionObject.headerModel];
         
         UITableViewHeaderFooterView *headerView = [self dequeueReusableHeaderFooterViewWithIdentifier:[self identifierOfSectionClass:sectionClass]];
         [headerView performSelector:@selector(AIConfigureWithModel:) withObject:sectionObject.headerModel];
         return headerView;
+    }
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    if (self.sections.count > 0) {
+        AITableViewSection *sectionObject = self.sections[section];
+        if (!sectionObject.footerModel) {
+            return nil;
+        }
+        Class sectionClass = [self sectionClassWithBindModel:sectionObject.footerModel];
+        
+        UITableViewHeaderFooterView *footerView = [self dequeueReusableHeaderFooterViewWithIdentifier:[self identifierOfSectionClass:sectionClass]];
+        [footerView performSelector:@selector(AIConfigureWithModel:) withObject:sectionObject.footerModel];
+        return footerView;
     }
     return nil;
 }
@@ -377,10 +396,28 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
 {
     if (self.sections.count > 0) {
         AITableViewSection *sectionObject = self.sections[section];
+        if (!sectionObject.headerModel) {
+            return 0;
+        }
         Class sectionClass = [self sectionClassWithBindModel:sectionObject.headerModel];
         Class <AITableViewSectionProtocal> sectionClassProtocal = sectionClass;
-
+        
         return [sectionClassProtocal AIHeightWithModel:sectionObject.headerModel];
+    }
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (self.sections.count > 0) {
+        AITableViewSection *sectionObject = self.sections[section];
+        if (!sectionObject.footerModel) {
+            return 0;
+        }
+        Class sectionClass = [self sectionClassWithBindModel:sectionObject.footerModel];
+        Class <AITableViewSectionProtocal> sectionClassProtocal = sectionClass;
+        
+        return [sectionClassProtocal AIHeightWithModel:sectionObject.footerModel];
     }
     return 0;
 }

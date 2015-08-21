@@ -47,15 +47,15 @@
 
 #pragma mark - Section
 
-- (void)bindSectionClass:(Class)sectionClass withModelClass:(Class)modelClass;
-- (void)bindSectionNibClass:(Class)sectionNibClass withModelClass:(Class)modelClass;
+- (void)bindHeaderFooterClass:(Class)sectionClass withModelClass:(Class)modelClass;
+- (void)bindHeaderFooterNibClass:(Class)sectionNibClass withModelClass:(Class)modelClass;
 
 //如果section不需要对应的model来完成配置，请使用这个方法bind它。
-- (void)bindStaticSectionWithSectionClass:(Class)sectionClass;
-- (void)bindStaticSectionWithSectionNibClass:(Class)sectionNibClass;
+- (void)bindStaticHeaderFooterWithClass:(Class)headerFooterClass;
+- (void)bindStaticHeaderFooterWithNibClass:(Class)headerFooterNibClass;
 
 //如果cell不需要对应的model来完成配置，可以用此方法生成一个这个cell对应的model，放入updateTabelViewWithModels的models 中。
-- (AITableViewStaticHeaderFooterModel *)modelWithStaticSectionClass:(Class)sectionClass;
+- (AITableViewStaticHeaderFooterModel *)modelWithStaticHeaderFooterClass:(Class)headerFooterClass;
 
 - (void)updateTableViewWithSections:(NSArray *)sections;
 
