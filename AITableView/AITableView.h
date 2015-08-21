@@ -15,7 +15,7 @@
 
 @end
 
-@interface AITableViewStaticSectionModel : NSObject
+@interface AITableViewStaticHeaderFooterModel : NSObject
 
 @property (strong, nonatomic) NSString *value;
 
@@ -55,7 +55,7 @@
 - (void)bindStaticSectionWithSectionNibClass:(Class)sectionNibClass;
 
 //如果cell不需要对应的model来完成配置，可以用此方法生成一个这个cell对应的model，放入updateTabelViewWithModels的models 中。
-- (AITableViewStaticSectionModel *)modelWithStaticSectionClass:(Class)sectionClass;
+- (AITableViewStaticHeaderFooterModel *)modelWithStaticSectionClass:(Class)sectionClass;
 
 - (void)updateTableViewWithSections:(NSArray *)sections;
 

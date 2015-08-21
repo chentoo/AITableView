@@ -35,8 +35,10 @@
     HEHECellModel *model = [[HEHECellModel alloc] init];
     AITableViewStaticCellModel *sModel = [self.tableview modelWithStaticCellClass:[HAHATableViewCell class]];
     
-    AITableViewStaticSectionModel *sectionModel = [self.tableview modelWithStaticSectionClass:[HEHETableViewHeaderView class]];
-    AITableViewSection *aiSection = [AITableViewSection sectionWithHeaderModel:sectionModel footerModel:nil cellModels:@[model, sModel, sModel, model]];
+    AITableViewStaticHeaderFooterModel *headerModel = [self.tableview modelWithStaticSectionClass:[HEHETableViewHeaderView class]];
+    AITableViewSection *aiSection = [AITableViewSection sectionWithHeaderModel:headerModel
+                                                                   footerModel:nil
+                                                                    cellModels:@[model, sModel, sModel, model]];
     
 //    [self.tableview updateTableViewWithModels:@[model, sModel, sModel, model]];
     [self.tableview updateTableViewWithSections:@[aiSection, aiSection, aiSection]];

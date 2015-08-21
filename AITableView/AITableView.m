@@ -13,7 +13,7 @@
 
 @end
 
-@implementation AITableViewStaticSectionModel
+@implementation AITableViewStaticHeaderFooterModel
 
 @end
 
@@ -154,9 +154,9 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     [self bindSectionNibClass:sectionNibClass withModelClass:Nil];
 }
 
-- (AITableViewStaticSectionModel *)modelWithStaticSectionClass:(Class)sectionClass
+- (AITableViewStaticHeaderFooterModel *)modelWithStaticSectionClass:(Class)sectionClass
 {
-    AITableViewStaticSectionModel *model = [[AITableViewStaticSectionModel alloc] init];
+    AITableViewStaticHeaderFooterModel *model = [[AITableViewStaticHeaderFooterModel alloc] init];
     model.value = [self keyOfBindSectionDicWithStaticSectionClassName:NSStringFromClass(sectionClass)];
     return model;
 }
@@ -291,9 +291,9 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
 - (Class)sectionClassWithBindModel:(id)model
 {
     NSString *sectionModelClassName;
-    if ([model isKindOfClass:[AITableViewStaticSectionModel class]])
+    if ([model isKindOfClass:[AITableViewStaticHeaderFooterModel class]])
     {
-        sectionModelClassName = [(AITableViewStaticSectionModel *)model value];
+        sectionModelClassName = [(AITableViewStaticHeaderFooterModel *)model value];
     }
     else
     {
