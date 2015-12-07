@@ -29,7 +29,7 @@
 
 #pragma mark - Cell
 
-//如果cell不需要对应的model来完成配置，第一个参数请传nil。
+//如果cell不需要对应的model来完成配置，第二个参数请传nil。
 //但建议使用 - bindStatacCellClass 来完成 cell bind。
 - (void)bindCellClass:(Class)cellClass withModelClass:(Class)modelClass;
 - (void)bindCellNibClass:(Class)cellNibClass withModelClass:(Class)modelClass;
