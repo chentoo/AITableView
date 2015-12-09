@@ -14,7 +14,7 @@
 #import "HEHETableViewHeaderView.h"
 #import "HEHETableViewFooterView.h"
 
-@interface ViewController ()
+@interface ViewController () <AITableViewDelegate>
 
 @property (strong, nonatomic) AITableView *tableview;
 
@@ -44,11 +44,19 @@
     
 //    [self.tableview updateTableViewWithModels:@[model, sModel, sModel, model]];
     [self.tableview updateTableViewWithSections:@[aiSection, aiSection, aiSection]];
+    self.tableview.AIDelegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - AITableViewDelegate
+
+- (void)tableView:(AITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath withCellModel:(id)cellModel
+{
+    NSLog(@"%@", indexPath);
 }
 
 @end

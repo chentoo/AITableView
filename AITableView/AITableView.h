@@ -21,8 +21,20 @@
 
 @end
 
+@class AITableView;
+
+@protocol AITableViewDelegate <NSObject>
+
+- (void)tableView:(AITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath withCellModel:(id)cellModel;
+
+@end
+
+typedef void(^AITableViewDidSelectRowBlock)(AITableView *tableView, NSIndexPath *indexPath, id cellModel);
 
 @interface AITableView : UITableView
+
+@property (nonatomic, weak) id <AITableViewDelegate> AIDelegate;
+@property (nonatomic, copy) AITableViewDidSelectRowBlock didSelectRowBlock;
 
 + (instancetype)tableView;
 + (instancetype)tableViewWithFrame:(CGRect)frame;
@@ -44,7 +56,7 @@
 //更新tableview，根据传入的models
 - (void)updateTableViewWithModels:(NSArray *)models;
 
-
+//如果需要有多个Section 可用以下方法拼装
 #pragma mark - Section
 
 - (void)bindHeaderFooterClass:(Class)sectionClass withModelClass:(Class)modelClass;
@@ -54,7 +66,7 @@
 - (void)bindStaticHeaderFooterWithClass:(Class)headerFooterClass;
 - (void)bindStaticHeaderFooterWithNibClass:(Class)headerFooterNibClass;
 
-//如果cell不需要对应的model来完成配置，可以用此方法生成一个这个cell对应的model，放入updateTabelViewWithModels的models 中。
+//如果HeaderFooter不需要对应的model来完成配置，可以用此方法生成一个这个cell对应的HeaderFooter。
 - (AITableViewStaticHeaderFooterModel *)modelWithStaticHeaderFooterClass:(Class)headerFooterClass;
 
 - (void)updateTableViewWithSections:(NSArray *)sections;

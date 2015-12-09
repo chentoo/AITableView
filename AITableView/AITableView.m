@@ -422,5 +422,26 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     return 0;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id cellModel;
+    if (self.sections.count > 0) {
+        AITableViewSection *sectionObject = self.sections[indexPath.section];
+        cellModel = sectionObject.cellModels[indexPath.row];
+    }
+    else {
+        cellModel = self.models[indexPath.row];
+    }
+    
+    id <AITableViewDelegate> strongDelegate = self.AIDelegate;
+    if ([strongDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:withCellModel:)]) {
+        [strongDelegate tableView:self didSelectRowAtIndexPath:indexPath withCellModel:cellModel];
+    }
+    
+    if (self.didSelectRowBlock) {
+        self.didSelectRowBlock(self, indexPath, cellModel);
+    }
+}
+
 @end
 
