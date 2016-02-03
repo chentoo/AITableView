@@ -109,6 +109,16 @@ AITableViewSection 去构建。
 
 5、更多的请参看完整示例代码。
 
+## 如何接收cell 点击事件？
+
+提供了三种方式：
+
+1. AITableView的 delegate
+2. AITableView的 Block
+3. model 的 protocal block（可以方便的配置在model身上）
+
+具体请看示例代码。
+
 ## Easy To Get Started
 
 #### 1、Your Cell have to implement AITableViewCellProtocal
