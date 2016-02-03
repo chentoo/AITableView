@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		DA022A421B85A9CE00AC299C /* AITableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = DA022A411B85A9CE00AC299C /* AITableViewSection.m */; };
-		DA022A451B85B60600AC299C /* HEHETableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA022A441B85B60600AC299C /* HEHETableViewHeaderView.m */; };
-		DA0A9CD01B86FDEA0031EC1A /* HEHETableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0A9CCF1B86FDEA0031EC1A /* HEHETableViewFooterView.m */; };
-		DA0A9CD21B8706540031EC1A /* HEHETableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0A9CD11B8706540031EC1A /* HEHETableViewFooterView.xib */; };
+		DA022A451B85B60600AC299C /* DemoTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA022A441B85B60600AC299C /* DemoTableViewHeaderView.m */; };
+		DA0A9CD01B86FDEA0031EC1A /* DemoTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0A9CCF1B86FDEA0031EC1A /* DemoTableViewFooterView.m */; };
+		DA0A9CD21B8706540031EC1A /* DemoTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0A9CD11B8706540031EC1A /* DemoTableViewFooterView.xib */; };
 		DA14096F1B70A6130082A638 /* AITableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14096D1B70A6130082A638 /* AITableView.m */; };
-		DA1E4B871B6A0E3000B957AB /* HAHATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1E4B851B6A0E3000B957AB /* HAHATableViewCell.m */; };
-		DA1E4B881B6A0E3000B957AB /* HAHATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1E4B861B6A0E3000B957AB /* HAHATableViewCell.xib */; };
-		DA56C1D31B60DB7100D84B7B /* HEHECellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */; };
+		DA796B851C61A5B900A15854 /* DemoTableViewNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA796B841C61A5B900A15854 /* DemoTableViewNameCell.m */; };
+		DA796B881C61A66C00A15854 /* DemoNameCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA796B871C61A66C00A15854 /* DemoNameCellModel.m */; };
+		DA796B8B1C61B1DA00A15854 /* DemoTableViewPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA796B8A1C61B1DA00A15854 /* DemoTableViewPhoneCell.m */; };
 		DAAC13261B4BC89100F7CFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC13251B4BC89100F7CFFB /* main.m */; };
 		DAAC13291B4BC89100F7CFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC13281B4BC89100F7CFFB /* AppDelegate.m */; };
 		DAAC132C1B4BC89100F7CFFB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC132B1B4BC89100F7CFFB /* ViewController.m */; };
@@ -22,7 +22,6 @@
 		DAAC13311B4BC89100F7CFFB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAAC13301B4BC89100F7CFFB /* Images.xcassets */; };
 		DAAC13341B4BC89100F7CFFB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAAC13321B4BC89100F7CFFB /* LaunchScreen.xib */; };
 		DAAC13401B4BC89100F7CFFB /* AITableViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC133F1B4BC89100F7CFFB /* AITableViewDemoTests.m */; };
-		DAAC13531B4BD1A100F7CFFB /* HEHETableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAC13521B4BD1A100F7CFFB /* HEHETableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,19 +37,20 @@
 /* Begin PBXFileReference section */
 		DA022A401B85A9CE00AC299C /* AITableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableViewSection.h; sourceTree = "<group>"; };
 		DA022A411B85A9CE00AC299C /* AITableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableViewSection.m; sourceTree = "<group>"; };
-		DA022A431B85B60600AC299C /* HEHETableViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHETableViewHeaderView.h; sourceTree = "<group>"; };
-		DA022A441B85B60600AC299C /* HEHETableViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHETableViewHeaderView.m; sourceTree = "<group>"; };
-		DA0A9CCE1B86FDEA0031EC1A /* HEHETableViewFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHETableViewFooterView.h; sourceTree = "<group>"; };
-		DA0A9CCF1B86FDEA0031EC1A /* HEHETableViewFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHETableViewFooterView.m; sourceTree = "<group>"; };
-		DA0A9CD11B8706540031EC1A /* HEHETableViewFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HEHETableViewFooterView.xib; sourceTree = "<group>"; };
+		DA022A431B85B60600AC299C /* DemoTableViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewHeaderView.h; sourceTree = "<group>"; };
+		DA022A441B85B60600AC299C /* DemoTableViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewHeaderView.m; sourceTree = "<group>"; };
+		DA0A9CCE1B86FDEA0031EC1A /* DemoTableViewFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewFooterView.h; sourceTree = "<group>"; };
+		DA0A9CCF1B86FDEA0031EC1A /* DemoTableViewFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewFooterView.m; sourceTree = "<group>"; };
+		DA0A9CD11B8706540031EC1A /* DemoTableViewFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoTableViewFooterView.xib; sourceTree = "<group>"; };
 		DA14096C1B70A6130082A638 /* AITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableView.h; sourceTree = "<group>"; };
 		DA14096D1B70A6130082A638 /* AITableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITableView.m; sourceTree = "<group>"; };
 		DA14096E1B70A6130082A638 /* AITableViewProtocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITableViewProtocal.h; sourceTree = "<group>"; };
-		DA1E4B841B6A0E3000B957AB /* HAHATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAHATableViewCell.h; sourceTree = "<group>"; };
-		DA1E4B851B6A0E3000B957AB /* HAHATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAHATableViewCell.m; sourceTree = "<group>"; };
-		DA1E4B861B6A0E3000B957AB /* HAHATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HAHATableViewCell.xib; sourceTree = "<group>"; };
-		DA56C1D11B60DB7100D84B7B /* HEHECellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHECellModel.h; sourceTree = "<group>"; };
-		DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHECellModel.m; sourceTree = "<group>"; };
+		DA796B831C61A5B900A15854 /* DemoTableViewNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewNameCell.h; sourceTree = "<group>"; };
+		DA796B841C61A5B900A15854 /* DemoTableViewNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewNameCell.m; sourceTree = "<group>"; };
+		DA796B861C61A66C00A15854 /* DemoNameCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoNameCellModel.h; sourceTree = "<group>"; };
+		DA796B871C61A66C00A15854 /* DemoNameCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoNameCellModel.m; sourceTree = "<group>"; };
+		DA796B891C61B1D900A15854 /* DemoTableViewPhoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewPhoneCell.h; sourceTree = "<group>"; };
+		DA796B8A1C61B1DA00A15854 /* DemoTableViewPhoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewPhoneCell.m; sourceTree = "<group>"; };
 		DAAC13201B4BC89100F7CFFB /* AITableViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AITableViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAC13241B4BC89100F7CFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAAC13251B4BC89100F7CFFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,8 +64,6 @@
 		DAAC13391B4BC89100F7CFFB /* AITableViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AITableViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAAC133E1B4BC89100F7CFFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAAC133F1B4BC89100F7CFFB /* AITableViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AITableViewDemoTests.m; sourceTree = "<group>"; };
-		DAAC13511B4BD1A100F7CFFB /* HEHETableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHETableViewCell.h; sourceTree = "<group>"; };
-		DAAC13521B4BD1A100F7CFFB /* HEHETableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHETableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,18 +121,17 @@
 				DA14096B1B70A6130082A638 /* AITableView */,
 				DAAC13271B4BC89100F7CFFB /* AppDelegate.h */,
 				DAAC13281B4BC89100F7CFFB /* AppDelegate.m */,
-				DAAC13511B4BD1A100F7CFFB /* HEHETableViewCell.h */,
-				DAAC13521B4BD1A100F7CFFB /* HEHETableViewCell.m */,
-				DA1E4B841B6A0E3000B957AB /* HAHATableViewCell.h */,
-				DA1E4B851B6A0E3000B957AB /* HAHATableViewCell.m */,
-				DA1E4B861B6A0E3000B957AB /* HAHATableViewCell.xib */,
-				DA022A431B85B60600AC299C /* HEHETableViewHeaderView.h */,
-				DA022A441B85B60600AC299C /* HEHETableViewHeaderView.m */,
-				DA0A9CCE1B86FDEA0031EC1A /* HEHETableViewFooterView.h */,
-				DA0A9CCF1B86FDEA0031EC1A /* HEHETableViewFooterView.m */,
-				DA0A9CD11B8706540031EC1A /* HEHETableViewFooterView.xib */,
-				DA56C1D11B60DB7100D84B7B /* HEHECellModel.h */,
-				DA56C1D21B60DB7100D84B7B /* HEHECellModel.m */,
+				DA796B831C61A5B900A15854 /* DemoTableViewNameCell.h */,
+				DA796B841C61A5B900A15854 /* DemoTableViewNameCell.m */,
+				DA796B861C61A66C00A15854 /* DemoNameCellModel.h */,
+				DA796B871C61A66C00A15854 /* DemoNameCellModel.m */,
+				DA796B891C61B1D900A15854 /* DemoTableViewPhoneCell.h */,
+				DA796B8A1C61B1DA00A15854 /* DemoTableViewPhoneCell.m */,
+				DA022A431B85B60600AC299C /* DemoTableViewHeaderView.h */,
+				DA022A441B85B60600AC299C /* DemoTableViewHeaderView.m */,
+				DA0A9CCE1B86FDEA0031EC1A /* DemoTableViewFooterView.h */,
+				DA0A9CCF1B86FDEA0031EC1A /* DemoTableViewFooterView.m */,
+				DA0A9CD11B8706540031EC1A /* DemoTableViewFooterView.xib */,
 				DAAC132A1B4BC89100F7CFFB /* ViewController.h */,
 				DAAC132B1B4BC89100F7CFFB /* ViewController.m */,
 				DAAC132D1B4BC89100F7CFFB /* Main.storyboard */,
@@ -254,8 +251,7 @@
 				DAAC132F1B4BC89100F7CFFB /* Main.storyboard in Resources */,
 				DAAC13341B4BC89100F7CFFB /* LaunchScreen.xib in Resources */,
 				DAAC13311B4BC89100F7CFFB /* Images.xcassets in Resources */,
-				DA1E4B881B6A0E3000B957AB /* HAHATableViewCell.xib in Resources */,
-				DA0A9CD21B8706540031EC1A /* HEHETableViewFooterView.xib in Resources */,
+				DA0A9CD21B8706540031EC1A /* DemoTableViewFooterView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,15 +270,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAAC132C1B4BC89100F7CFFB /* ViewController.m in Sources */,
-				DA0A9CD01B86FDEA0031EC1A /* HEHETableViewFooterView.m in Sources */,
+				DA0A9CD01B86FDEA0031EC1A /* DemoTableViewFooterView.m in Sources */,
 				DA022A421B85A9CE00AC299C /* AITableViewSection.m in Sources */,
-				DAAC13531B4BD1A100F7CFFB /* HEHETableViewCell.m in Sources */,
-				DA1E4B871B6A0E3000B957AB /* HAHATableViewCell.m in Sources */,
+				DA796B851C61A5B900A15854 /* DemoTableViewNameCell.m in Sources */,
+				DA796B8B1C61B1DA00A15854 /* DemoTableViewPhoneCell.m in Sources */,
 				DA14096F1B70A6130082A638 /* AITableView.m in Sources */,
-				DA56C1D31B60DB7100D84B7B /* HEHECellModel.m in Sources */,
 				DAAC13291B4BC89100F7CFFB /* AppDelegate.m in Sources */,
+				DA796B881C61A66C00A15854 /* DemoNameCellModel.m in Sources */,
 				DAAC13261B4BC89100F7CFFB /* main.m in Sources */,
-				DA022A451B85B60600AC299C /* HEHETableViewHeaderView.m in Sources */,
+				DA022A451B85B60600AC299C /* DemoTableViewHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

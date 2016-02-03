@@ -6,16 +6,16 @@
 //  Copyright (c) 2015年 chentoo. All rights reserved.
 //
 
-#import "HEHETableViewFooterView.h"
+#import "DemoTableViewFooterView.h"
 #import "AITableViewProtocal.h"
 
-@interface HEHETableViewFooterView () <AITableViewSectionProtocal>
+@interface DemoTableViewFooterView () <AITableViewSectionProtocal>
 
 @property (weak, nonatomic) IBOutlet UILabel *footerLabel;
 
 @end
 
-@implementation HEHETableViewFooterView
+@implementation DemoTableViewFooterView
 
 - (void)awakeFromNib
 {
@@ -40,13 +40,5 @@
 {
     return 20;
 }
-
-+ (NSString *)AIReuseIdentifier
-{
-    return NSStringFromClass(self.class);
-}
-
-
-
 
 @end

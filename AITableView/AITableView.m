@@ -260,8 +260,9 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
 
 - (NSString *)identifierOfCellClass:(Class)cellClass
 {
-    Class <AITableViewCellProtocal> cellClassProtocal = cellClass;
-    return [cellClassProtocal AIReuseIdentifier];
+//    Class <AITableViewCellProtocal> cellClassProtocal = cellClass;
+//    return [cellClassProtocal AIReuseIdentifier];
+    return NSStringFromClass(cellClass);
 }
 
 - (Class)cellClassWithBindModel:(id)model
@@ -290,8 +291,9 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
 
 - (NSString *)identifierOfSectionClass:(Class)sectionClass
 {
-    Class <AITableViewSectionProtocal> sectionClassProtocal = sectionClass;
-    return [sectionClassProtocal AIReuseIdentifier];
+//    Class <AITableViewSectionProtocal> sectionClassProtocal = sectionClass;
+//    return [sectionClassProtocal AIReuseIdentifier];
+    return NSStringFromClass(sectionClass);
 }
 
 - (Class)sectionClassWithBindModel:(id)model

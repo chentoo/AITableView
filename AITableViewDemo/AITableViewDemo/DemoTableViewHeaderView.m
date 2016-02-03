@@ -1,21 +1,21 @@
 //
-//  HEHETableViewHeaderView.m
+//  DemoTableViewHeaderView.m
 //  AITableViewDemo
 //
 //  Created by chentoo on 15/8/20.
 //  Copyright (c) 2015年 chentoo. All rights reserved.
 //
 
-#import "HEHETableViewHeaderView.h"
+#import "DemoTableViewHeaderView.h"
 #import "AITableViewProtocal.h"
 
-@interface HEHETableViewHeaderView () <AITableViewSectionProtocal>
+@interface DemoTableViewHeaderView () <AITableViewSectionProtocal>
 
 @property (strong, nonatomic) UILabel *titleLabel;
 
 @end
 
-@implementation HEHETableViewHeaderView
+@implementation DemoTableViewHeaderView
 
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -45,11 +45,5 @@
 {
     return 50;
 }
-
-+ (NSString *)AIReuseIdentifier
-{
-    return NSStringFromClass(self.class);
-}
-
 
 @end

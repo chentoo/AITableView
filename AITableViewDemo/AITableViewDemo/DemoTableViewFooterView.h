@@ -1,5 +1,5 @@
 //
-//  HEHETableViewFooterView.h
+//  DemoTableViewFooterView.h
 //  AITableViewDemo
 //
 //  Created by chentoo on 15/8/21.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HEHETableViewFooterView : UITableViewHeaderFooterView
+@interface DemoTableViewFooterView : UITableViewHeaderFooterView
 
 @end

@@ -12,7 +12,6 @@
 
 @required
 - (void)AIConfigureWithModel:(id)model;
-+ (NSString *)AIReuseIdentifier;
 + (CGFloat)AIHeightWithModel:(id)model;
 
 @end
@@ -21,7 +20,6 @@
 
 @required
 - (void)AIConfigureWithModel:(id)model;
-+ (NSString *)AIReuseIdentifier;
 + (CGFloat)AIHeightWithModel:(id)model;
 
 @end
