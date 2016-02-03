@@ -24,5 +24,14 @@
 + (NSString *)AIReuseIdentifier;
 + (CGFloat)AIHeightWithModel:(id)model;
 
+@end
+
+typedef void(^AITableViewCellDidSelectBlock)(NSIndexPath *indexPath);
+
+@protocol AITableViewModelProtocal <NSObject>
+
+@optional
+
+@property (nonatomic, copy) AITableViewCellDidSelectBlock AIDidSelectBlock;
 
 @end

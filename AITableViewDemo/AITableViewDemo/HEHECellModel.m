@@ -8,6 +8,8 @@
 
 #import "HEHECellModel.h"
 
+
 @implementation HEHECellModel
+@synthesize AIDidSelectBlock = _AIDidSelectBlock;
 
 @end

@@ -25,6 +25,7 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
 @property (strong, nonatomic) NSMutableDictionary *bindSectionDic;
 @property (strong, nonatomic) NSArray *models;
 @property (strong, nonatomic) NSArray *sections;
+@property (nonatomic, copy) AITableViewDidSelectRowBlock didSelectRowBlock;
 
 @end
 
@@ -58,6 +59,11 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
     tableView.frame = frame;
     
     return tableView;
+}
+
+- (void)setAIDidSelectRowBlock:(AITableViewDidSelectRowBlock)didSelectRowBlock
+{
+    self.didSelectRowBlock = didSelectRowBlock;
 }
 
 #pragma mark - Cell Public
@@ -433,13 +439,27 @@ static NSString * const kAITableViewBindDicModelDefault = @"kAITableViewBindDicM
         cellModel = self.models[indexPath.row];
     }
     
+    // AITableView delegate 方式传递cell select事件
+    
     id <AITableViewDelegate> strongDelegate = self.AIDelegate;
     if ([strongDelegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:withCellModel:)]) {
         [strongDelegate tableView:self didSelectRowAtIndexPath:indexPath withCellModel:cellModel];
     }
     
+    // AITableView Block 方式传递cell select事件
+
     if (self.didSelectRowBlock) {
         self.didSelectRowBlock(self, indexPath, cellModel);
+    }
+    
+    // AITableViewModelProtocal 方式，向model传递 cell select 事件
+    
+    id <AITableViewModelProtocal> modelProtocal = cellModel;
+    if ([modelProtocal respondsToSelector:@selector(AIDidSelectBlock)]) {
+        AITableViewCellDidSelectBlock didSelectBlock = [modelProtocal AIDidSelectBlock];
+        if (didSelectBlock) {
+            didSelectBlock(indexPath);
+        }
     }
 }
 

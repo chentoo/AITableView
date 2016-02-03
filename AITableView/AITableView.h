@@ -34,10 +34,10 @@ typedef void(^AITableViewDidSelectRowBlock)(AITableView *tableView, NSIndexPath 
 @interface AITableView : UITableView
 
 @property (nonatomic, weak) id <AITableViewDelegate> AIDelegate;
-@property (nonatomic, copy) AITableViewDidSelectRowBlock didSelectRowBlock;
 
 + (instancetype)tableView;
 + (instancetype)tableViewWithFrame:(CGRect)frame;
+- (void)setAIDidSelectRowBlock:(AITableViewDidSelectRowBlock)didSelectRowBlock;
 
 #pragma mark - Cell
 

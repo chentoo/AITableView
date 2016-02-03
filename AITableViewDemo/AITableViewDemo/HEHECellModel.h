@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AITableViewProtocal.h"
 
-@interface HEHECellModel : NSObject
+@interface HEHECellModel : NSObject <AITableViewModelProtocal>
 
 @end
